@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_blue_light"
+    android:background="#8A03A9F4"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -19,11 +19,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColorHint="@color/black"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:padding="10dp"
             app:counterEnabled="true"
             app:counterMaxLength="10"
-            app:boxBackgroundColor="@color/white"
             app:counterOverflowTextColor="@android:color/holo_red_light"
-            app:hintTextColor="@android:color/holo_blue_light"
+            app:hintTextColor="@color/white"
             app:placeholderTextColor="#009688"
             app:boxStrokeColor="@color/black"
             app:boxCornerRadiusBottomEnd="5dp"
@@ -37,10 +38,11 @@
                 android:ems="10"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
-                android:hint="Passward"
+                android:hint="Password"
                 android:inputType="textPassword"
                 android:maxLength="11"
-                android:textColor="@android:color/holo_blue_light"
+                android:backgroundTint="@android:color/holo_red_light"
+                android:textColor="@color/white"
                 android:textColorHighlight="@color/black"
                 android:textSize="16dp"
                 android:textStyle="bold">
@@ -51,9 +53,12 @@
             android:id="@+id/main_BTN_enter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
             android:textColor="@color/white"
             android:layout_gravity="center_horizontal"
             app:cornerRadius="50dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             app:strokeColor="@color/white"
             android:text="Enter"/>

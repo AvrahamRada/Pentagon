@@ -1,29 +1,19 @@
 package com.example.pentagon;
 
-import android.Manifest;
-import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.ContactsContract;
 import android.provider.Settings;
-import android.util.Log;
-import android.widget.Toast;
-
-import androidx.core.app.ActivityCompat;
 
 public class Validator {
 
     // Variables for phone's brightness case.
     private static int currentBrigthLight;
-    private static final int Darkness = 255;
-    private static BatteryReceiver batteryReceiver = new BatteryReceiver();
+    private static final int MAX_BRIGHTNESS = 255;
 
     public static boolean isValidPassword(Context context, String pwd) {
-
         // Check if pwd contain at least one Capital and on non-capital letter
         if (pwd.matches(".*[A-Z].*") && pwd.matches(".*[a-z].*") && checkBrightnessOfScreen(context)) {
             if (contactExists(context, "0544292888") ||
@@ -31,7 +21,6 @@ public class Validator {
                     contactExists(context, "054-4292888") ||
                     contactExists(context, "+972-54-4292888")) {
                 return true;
-
             }
             return false;
         } else
@@ -69,15 +58,18 @@ public class Validator {
         }
 
         // If brightness is on the min value it will continue.
-        if (currentBrigthLight == Darkness)
+        if (currentBrigthLight == MAX_BRIGHTNESS)
             return true;
         else
             return false;
     }
 
-    public static boolean isValidBattery(Context context, String pwd, int percentage) {
-        if (pwd.contains(Integer.toString(percentage)))
+    public static boolean isAppInstalled(PackageManager myPackageManager, String appName) {
+        try {
+            myPackageManager.getPackageInfo(appName, PackageManager.GET_ACTIVITIES);
             return true;
-        return false;
+        } catch (PackageManager.NameNotFoundException e) {
+            return false;
+        }
     }
 }
