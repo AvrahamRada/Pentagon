@@ -15,4 +15,4 @@ Target: Break The Code and enter to the next Activity
 
 ## Screenshots:
 
-<img src="images/pentagon.png" width=300><img src="images/main_activity.jpeg" width=300><img src="images/success_activity.jpeg" width=300>
+<img src="images/pentagon.png" width=250>    <img src="images/main_activity.jpeg" width=250>    <img src="images/success_activity.jpeg" width=250>
