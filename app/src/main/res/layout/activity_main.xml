@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#8A03A9F4"
+    android:background="#8A61D159"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -25,8 +25,8 @@
             app:counterMaxLength="10"
             app:counterOverflowTextColor="@android:color/holo_red_light"
             app:hintTextColor="@color/white"
-            app:placeholderTextColor="#009688"
-            app:boxStrokeColor="@color/black"
+            app:placeholderTextColor="#8A50ED45"
+            app:boxStrokeColor="@color/white"
             app:boxCornerRadiusBottomEnd="5dp"
             app:boxCornerRadiusBottomStart="5dp"
             app:boxCornerRadiusTopEnd="5dp"

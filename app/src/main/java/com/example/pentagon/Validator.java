@@ -10,9 +10,18 @@ import android.provider.Settings;
 public class Validator {
 
     // Variables for phone's brightness case.
-    private static int currentBrigthLight;
+    private static int currentBrightLight;
     private static final int MAX_BRIGHTNESS = 255;
 
+    /**
+     * Checks that user's password contains:
+     * 1. Capital & non capital letters
+     * 2. checkBrightnessOfScreen()
+     * 3. contactExists()
+     * @param context
+     * @param pwd
+     * @return - True - password & Brightness & Avraham Rada's phone number are OK / False - not
+     */
     public static boolean isValidPassword(Context context, String pwd) {
         // Check if pwd contain at least one Capital and on non-capital letter
         if (pwd.matches(".*[A-Z].*") && pwd.matches(".*[a-z].*") && checkBrightnessOfScreen(context)) {
@@ -27,6 +36,12 @@ public class Validator {
             return false;
     }
 
+    /**
+     * Checks if number: 0544292888 is saved in the phone
+     * @param context
+     * @param number - 0544292888 (Avraham Rada's phone number)
+     * @return True - avraham rada's phone is saved in your phone / False - Avraham Rada's phone is not saved
+     */
     public static boolean contactExists(Context context, String number) {
         try {
             Uri uri = Uri.withAppendedPath(ContactsContract.PhoneLookup.CONTENT_FILTER_URI, Uri.encode(number));
@@ -49,21 +64,31 @@ public class Validator {
         return false;
     }
 
-
+    /**
+     * Checks if the phone is on MAX brightness 100%
+     * @param context
+     * @return True - MAX brightness / False - not on MAX brightness
+     */
     private static boolean checkBrightnessOfScreen(Context context) {
         try {
-            currentBrigthLight = Settings.System.getInt(context.getContentResolver(), Settings.System.SCREEN_BRIGHTNESS);
+            currentBrightLight = Settings.System.getInt(context.getContentResolver(), Settings.System.SCREEN_BRIGHTNESS);
         } catch (Settings.SettingNotFoundException e) {
             e.printStackTrace();
         }
 
         // If brightness is on the min value it will continue.
-        if (currentBrigthLight == MAX_BRIGHTNESS)
+        if (currentBrightLight == MAX_BRIGHTNESS)
             return true;
         else
             return false;
     }
 
+    /**
+     * Checks if 'Netflix' app is installed in the phone
+     * @param myPackageManager
+     * @param appName
+     * @return True - Netflix is installed / False - not installed.
+     */
     public static boolean isAppInstalled(PackageManager myPackageManager, String appName) {
         try {
             myPackageManager.getPackageInfo(appName, PackageManager.GET_ACTIVITIES);

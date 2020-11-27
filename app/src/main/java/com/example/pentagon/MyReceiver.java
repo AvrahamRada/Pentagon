@@ -18,38 +18,23 @@ public class MyReceiver extends BroadcastReceiver {
         this.main_TXT_password = main_TXT_password;
     }
 
-    public TextInputLayout getMain_TXT_password() {
-        return main_TXT_password;
-    }
-
     public void setMain_TXT_password(TextInputLayout main_TXT_password) {
         this.main_TXT_password = main_TXT_password;
     }
 
+    /**
+     * return True/False if the percentage of teh battery is as inserted in the password by user
+     * @return True - password includes the battery percentage, False - if not
+     */
     public boolean getInsertedBatteryOK() {
         this.insertedBatteryOK = (this.main_TXT_password.getEditText().getText().toString().trim()).contains(percentage + "");
         return this.insertedBatteryOK;
     }
 
-    public int getPercentage() {
-        return percentage;
-    }
-
     @Override
     public void onReceive(Context context, Intent intent) {
-        // TODO: This method is called when the BroadcastReceiver is receiving
-        // an Intent broadcast.
-        String actionString = intent.getAction();
-        Toast.makeText(context, "actionString = " + actionString, Toast.LENGTH_LONG).show();
-//        String timeZone = intent.getStringExtra("time-zone");
-//        Log.d(TAG, "onReceive: "+timeZone);
-        //throw new UnsupportedOperationException("Not yet implemented");
-//        boolean isOn = intent.getBooleanExtra("state", false);
-//        Log.d(TAG, "onReceive: Airplane mode is on:" + isOn);
-//        PendingResult pendingResult = goAsync();
-//        Log.d(TAG, "onReceive: BOOT Action");
-//        new Task(pendingResult, intent).execute();
-
+//        String actionString = intent.getAction();
+//        Toast.makeText(context, "actionString = " + actionString, Toast.LENGTH_LONG).show();
         this.percentage = intent.getIntExtra("level", 0);
         this.insertedBatteryOK = (this.main_TXT_password.getEditText().getText().toString().trim()).contains(percentage + "");
 
