@@ -3,7 +3,7 @@
 ## Description:
 Hi :)
 'Pentagon' app for Mobile Security course.
-Your target --> :lock:Break The Code and enter to the next Activity :unlock:
+Your target: Break The Code and enter to the next Activity. :lock: --> :unlock:
 
 ## Break the code:
 1. Password must contain Capital and Non-Capital letter. :older_man: & :baby:
